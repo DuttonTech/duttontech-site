@@ -58,7 +58,7 @@ export const EMAIL = "DuttonTechLLC@gmail.com";
 
 // Payment routing values currently shown on the live Streamlit site.
 // CONFIRM with Andy: pricing amounts and which email should receive Zelle payments.
-export const PAY_EMAIL = "DuttonCapital@gmail.com";
+export const PAY_EMAIL = "DuttonTechLLC@gmail.com";
 
 export const aboutParas: { lead?: string; body: string }[] = [
   { lead: "DuttonTech LLC", body: " is a financial data infrastructure company focused on building secure, high-performance portfolio analytics tools for modern investors." },

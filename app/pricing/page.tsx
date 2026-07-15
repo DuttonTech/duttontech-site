@@ -32,8 +32,8 @@ export default function Page() {
         <ol>
           <li>Request access from the landing page.</li>
           <li>
-            Once approved, send your payment via <strong>Zelle</strong> to{" "}
-            <strong>{PAY_EMAIL}</strong> (PayPal available as a backup).
+            Once approved, send your payment via <strong>Zelle</strong> (or{" "}
+            <strong>PayPal</strong> as a backup) to <strong>{PAY_EMAIL}</strong>.
           </li>
           <li>Include your approved, exact username in the payment memo.</li>
           <li>Your account is activated manually by the administrator once payment is confirmed.</li>

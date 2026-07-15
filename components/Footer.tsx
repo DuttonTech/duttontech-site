@@ -4,7 +4,7 @@ import { EMAIL } from "../lib/content";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer id="site-footer">
       <div className="wrap">
         <div className="foot-grid">
           <Reveal>

@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
+import BackToTop from "../components/BackToTop";
 import { SectionHead, CardGrid, Steps, Spotlight } from "../components/ui";
 import { features, trust, caps, caps2, steps } from "../lib/content";
 
@@ -20,7 +21,7 @@ export default function Home() {
         <CardGrid items={features} />
       </section>
 
-      <section className="band wrap" id="privacy">
+      <section className="band wrap" id="security">
         <SectionHead
           eyebrow="Private by design"
           title="The environment where your data stays"
@@ -52,6 +53,7 @@ export default function Home() {
       </section>
 
       <Footer />
+      <BackToTop />
     </>
   );
 }

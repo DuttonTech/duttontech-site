@@ -5,7 +5,7 @@ import { APP_URL } from "../lib/content";
 
 const NAV = [
   { href: "#features", label: "Platform" },
-  { href: "#privacy", label: "Privacy" },
+  { href: "#security", label: "Security" },
   { href: "#capabilities", label: "Capabilities" },
   { href: "#steps", label: "Get started" },
 ];

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DuttonCapital — Product Demo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: radial-gradient(circle, #0F172A 0%, #020617 100%); color: #E2E8F0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .demo-frame { width: 100%; max-width: 960px; aspect-ratio: 16 / 9; background: #0B1220; border: 1px solid #334155; border-radius: 14px; overflow: hidden; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+  .scene { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease; padding: 24px 28px; display: flex; flex-direction: column; }
+  .scene.active { opacity: 1; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-logo { width: 36px; height: 36px; border-radius: 9px; background: #1E293B; border: 2px solid #E2E8F0; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #C2C7CA; font-size: 17px; }
+  .brand-name { font-size: 20px; font-weight: 800; letter-spacing: 1px; }
+  .brand-name .blue { color: #4285F4; font-weight: 300; }
+  .brand-sub { font-size: 11px; color: #94A3B8; font-style: italic; }
+  .caption { position: absolute; bottom: 20px; left: 28px; right: 28px; background: rgba(15,23,42,0.92); border: 1px solid #334155; border-left: 3px solid #4285F4; border-radius: 8px; padding: 9px 14px; font-size: 13.5px; color: #E2E8F0; }
+  .caption b { color: #60A5FA; font-weight: 700; }
+  .browser-bar { display: flex; align-items: center; gap: 8px; background: #1E293B; border-radius: 8px; padding: 8px 14px; margin-bottom: 36px; }
+  .browser-dots { display: flex; gap: 5px; }
+  .browser-dots span { width: 10px; height: 10px; border-radius: 50%; }
+  .url-box { flex: 1; background: #0B1220; border-radius: 6px; padding: 7px 12px; font-size: 14px; color: #E2E8F0; font-family: monospace; }
+  .url-typed { border-right: 2px solid #4285F4; padding-left: 1px; }
+  .hook-center { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .hook-tagline { font-size: 15px; color: #94A3B8; }
+  .login-card { margin: auto; width: 320px; background: rgba(30,41,59,0.6); border: 1px solid #334155; border-radius: 12px; padding: 24px; }
+  .login-card h3 { font-size: 15px; margin-bottom: 14px; text-align: center; color: #fff; }
+  .field-label { font-size: 12px; color: #94A3B8; margin: 9px 0 4px; }
+  .field { background: #0B1220; border: 1px solid #334155; border-radius: 6px; padding: 9px 12px; font-size: 14px; color: #E2E8F0; min-height: 36px; }
+  .login-btn { margin-top: 15px; width: 100%; background: #4285F4; color: #fff; border: none; border-radius: 6px; padding: 10px; font-size: 14px; font-weight: 600; }
+  .top-row { display: flex; justify-content: space-between; align-items: flex-start; }
+  .tabs { display: flex; gap: 14px; font-size: 11.5px; color: #94A3B8; margin: 14px 0; flex-wrap: wrap; }
+  .tabs .on { color: #4285F4; font-weight: 700; border-bottom: 2px solid #4285F4; padding-bottom: 3px; }
+  .cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card { background: rgba(30,41,59,0.6); border: 1px solid #334155; border-radius: 12px; padding: 14px; }
+  .card-title { font-size: 12.5px; color: #94A3B8; font-weight: 600; border-bottom: 1px solid #334155; padding-bottom: 6px; margin-bottom: 8px; }
+  .card-value { font-size: 27px; font-weight: 800; color: #fff; transition: all .5s ease; }
+  .card-sub { font-size: 11.5px; color: #10B981; font-weight: 700; }
+  .pf-title { text-align:center; font-weight:800; color:#0F172A; background:linear-gradient(90deg,#F3F4F5,#C2C7CA); border-radius:6px; padding:5px; font-size:13px; margin-bottom:8px; }
+  .badge { background:#4285F4; color:#fff; font-size:10px; padding:1px 7px; border-radius:999px; margin-left:6px; }
+  .pf-total { text-align:center; margin-bottom:8px; }
+  .pf-total .lbl { font-size:10px; color:#94A3B8; }
+  .pf-total .v { font-size:20px; font-weight:800; color:#10B981; }
+  .mini-table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  .mini-table th { text-align: left; color: #94A3B8; font-weight: 600; padding: 5px 7px; border-bottom: 1px solid #334155; }
+  .mini-table td { padding: 5px 7px; border-bottom: 1px solid #1E293B; color: #E2E8F0; }
+  .mini-table td.num { text-align: right; }
+  .row-new { animation: flashRow 1s ease; }
+  @keyframes flashRow { 0% { background: rgba(66,133,244,0.4); } 100% { background: transparent; } }
+  .sell-price.bump { color: #F59E0B; font-weight: 700; }
+  .ny-clock { background: rgba(30,41,59,0.6); border: 1px solid #334155; border-radius: 10px; padding: 8px 14px; text-align: center; min-width: 130px; }
+  .ny-clock .t { font-size: 19px; font-weight: 800; color: #fff; }
+  .ny-clock .d { font-size: 10px; color: #94A3B8; }
+  .ny-clock .s { font-size: 11px; font-weight: 700; color: #10B981; }
+  .logout-btn { background: rgba(30,41,59,0.6); border: 1px solid #334155; color: #E2E8F0; border-radius: 6px; padding: 8px 14px; font-size: 11.5px; margin-top: 8px; }
+  .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+  .stat-card { background: rgba(30,41,59,0.6); border: 1px solid #334155; border-radius: 12px; padding: 13px; }
+  .stat-card .lbl { font-size: 11.5px; color: #94A3B8; font-weight: 600; margin-bottom: 5px; }
+  .stat-card .val { font-size: 21px; font-weight: 800; }
+  .pos { color: #10B981; }
+  .crypto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .crypto-card { background: rgba(30,41,59,0.6); border: 1px solid #334155; border-radius: 12px; padding: 14px; text-align:center; }
+  .crypto-card .sym { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+  .crypto-card .live { font-size: 11px; color: #94A3B8; }
+  .crypto-card .val { font-size: 18px; font-weight: 800; color: #fff; margin-top: 6px; }
+  .crypto-card .qty { font-size: 11px; color: #60A5FA; margin-top: 2px; }
+  .progress { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 5; }
+  .progress span { width: 7px; height: 7px; border-radius: 50%; background: #334155; transition: background 0.3s; }
+  .progress span.on { background: #4285F4; }
+  .settings-row { display: flex; align-items: center; gap: 12px; margin: 6px 0; }
+  .settings-row .lbl { font-size: 12.5px; color: #94A3B8; width: 170px; }
+  .stepper { display: flex; align-items: center; background: #0B1220; border: 1px solid #334155; border-radius: 6px; }
+  .stepper .v { padding: 5px 16px; font-size: 14px; color: #fff; font-weight: 700; transition: all 0.3s; }
+  .stepper .b { padding: 5px 11px; color: #94A3B8; }
+</style>
+</head>
+<body>
+<div class="demo-frame">
+  <div class="progress" id="progress"></div>
+  <div class="scene" data-scene="0">
+    <div class="browser-bar"><div class="browser-dots"><span style="background:#EF4444"></span><span style="background:#F59E0B"></span><span style="background:#10B981"></span></div><div class="url-box"><span id="url-text"></span><span class="url-typed"></span></div></div>
+    <div class="hook-center"><div class="brand"><div class="brand-logo">D</div><div class="brand-name">Dutton<span class="blue">Tech</span></div></div><div class="hook-tagline">"Your future is bright"</div><div style="font-size:13px;color:#64748B;max-width:440px;text-align:center;">Private portfolio tracking, analytics, and visualization — built for the independent investor.</div></div>
+    <div class="caption">Start at your live workspace — <b>duttontech.com</b></div>
+  </div>
+  <div class="scene" data-scene="1">
+    <div class="brand"><div class="brand-logo">D</div><div class="brand-name">Dutton<span class="blue">Tech</span></div></div>
+    <div class="login-card"><h3>Sign in to your dashboard</h3><div class="field-label">Username</div><div class="field" id="login-user"></div><div class="field-label">Password</div><div class="field" id="login-pass"></div><button class="login-btn">Log In</button></div>
+    <div class="caption">Secure login — each client sees only their own private workspace</div>
+  </div>
+  <div class="scene" data-scene="2">
+    <div class="top-row"><div class="brand"><div class="brand-logo">D</div><div><div class="brand-name" style="font-size:17px;">Dutton<span class="blue">Capital</span></div><div class="brand-sub">Portfolio Environment: BethD-Demo</div></div></div></div>
+    <div class="tabs"><span class="on">Summary</span><span>Portfolio</span><span>Cryptocurrency</span><span>Asset Chart</span><span>Analytics</span><span>Data Center</span><span>Settings</span></div>
+    <div class="cards-2"><div class="card"><div class="card-title">All Assets</div><div class="card-value">$56,869.16</div><div class="card-sub">Total Portfolio Market Value</div></div><div class="card"><div class="card-title">Liquid Assets</div><div class="card-value">$650.00</div><div class="card-sub">Combined Available Cash</div></div></div>
+    <div class="caption">Everything in one place — stocks and crypto, tracked together</div>
+  </div>
+  <div class="scene" data-scene="3">
+    <div class="tabs"><span>Summary</span><span class="on">Portfolio</span><span>Cryptocurrency</span></div>
+    <div class="cards-2">
+      <div class="card"><div class="pf-title">🏄 Surf Portfolio <span class="badge">Tax Lot</span></div><div class="pf-total"><span class="lbl">TOTAL PORTFOLIO VALUE</span><br><span class="v">$1,596.27</span></div><table class="mini-table"><thead><tr><th>Ticker</th><th class="num">Qty</th><th class="num">Price</th></tr></thead><tbody><tr><td>MSFT</td><td class="num">3.00</td><td class="num">$390.49</td></tr><tr><td>NKE</td><td class="num">4.00</td><td class="num">$43.70</td></tr></tbody></table></div>
+      <div class="card"><div class="pf-title">🏦 Vault Portfolio <span class="badge">Avg Cost</span></div><div class="pf-total"><span class="lbl">TOTAL PORTFOLIO VALUE</span><br><span class="v">$1,625.30</span></div><table class="mini-table"><thead><tr><th>Ticker</th><th class="num">Qty</th><th class="num">Price</th></tr></thead><tbody><tr><td>JNJ</td><td class="num">2.00</td><td class="num">$161.20</td></tr><tr><td>KO</td><td class="num">6.00</td><td class="num">$59.10</td></tr><tr><td>SPY</td><td class="num">1.00</td><td class="num">$548.30</td></tr></tbody></table></div>
+    </div>
+    <div class="caption"><b>Surf</b> for active trading, <b>Vault</b> for long-term holds — never mixed</div>
+  </div>
+  <div class="scene" data-scene="4">
+    <div class="tabs"><span>Summary</span><span class="on">Portfolio</span></div>
+    <div class="card" style="margin-bottom:10px;"><div class="pf-title">🏄 Surf Portfolio <span class="badge">Tax Lot</span></div><div class="pf-total"><span class="lbl">TOTAL PORTFOLIO VALUE</span><br><span class="v" id="buy-total">$1,596.27</span></div></div>
+    <table class="mini-table"><thead><tr><th>Date</th><th>Ticker</th><th class="num">Qty</th><th class="num">Price</th><th>Source</th></tr></thead><tbody id="buy-tbody"><tr><td>2026-06-02</td><td>MSFT</td><td class="num">3.00</td><td class="num">$387.00</td><td>Purchase</td></tr></tbody></table>
+    <div class="caption">Add a purchase as a dated <b>lot</b> — your portfolio value updates instantly</div>
+  </div>
+  <div class="scene" data-scene="5">
+    <div class="tabs"><span>Summary</span><span>Portfolio</span><span class="on">Cryptocurrency</span></div>
+    <div class="crypto-grid">
+      <div class="crypto-card"><div class="sym">🟠 BITCOIN</div><div class="live">Live: $61,748.84</div><div class="val">$46,311.63</div><div class="qty">0.75 BTC</div></div>
+      <div class="crypto-card"><div class="sym">🔷 ETHEREUM</div><div class="live">Live: $1,708.99</div><div class="val">$6,835.96</div><div class="qty">4.00 ETH</div></div>
+      <div class="crypto-card"><div class="sym">🟢 USDC</div><div class="live">Live: $1.00</div><div class="val">$500.00</div><div class="qty">500 USDC</div></div>
+    </div>
+    <div style="margin-top:14px; text-align:center; font-size:13px; color:#94A3B8;">Total crypto value: <b style="color:#fff;">$53,647.59</b></div>
+    <div class="caption">Track <b>Bitcoin, Ethereum, USDC</b> and more — live prices, right beside your stocks</div>
+  </div>
+  <div class="scene" data-scene="6">
+    <div class="tabs"><span>Summary</span><span>Portfolio</span><span class="on">Settings</span></div>
+    <div class="card"><div class="card-title">🎯 Target Returns</div><div class="settings-row"><div class="lbl">Tech Sector Target (%)</div><div class="stepper"><span class="b">−</span><span class="v" id="tech-target">15</span><span class="b">+</span></div></div></div>
+    <table class="mini-table" style="margin-top:10px;"><thead><tr><th>Ticker</th><th class="num">Purchase</th><th class="num">Strategic Sell Price</th></tr></thead><tbody><tr><td>MSFT</td><td class="num">$387.00</td><td class="num sell-price" id="sp1">$445.05</td></tr></tbody></table>
+    <div class="caption">Set your exit target — the <b>Strategic Sell Price</b> recalculates automatically</div>
+  </div>
+  <div class="scene" data-scene="7">
+    <div class="tabs"><span class="on">Summary</span><span>Portfolio</span></div>
+    <div class="pf-title" style="text-align:left; padding:6px 12px; margin-bottom:12px;">📊 Realized Trading Performance</div>
+    <div class="cards-3"><div class="stat-card"><div class="lbl">Total Realized P/L</div><div class="val pos">+$645.50</div></div><div class="stat-card"><div class="lbl">Surf Realized</div><div class="val pos">+$385.00</div></div><div class="stat-card"><div class="lbl">Vault Realized</div><div class="val pos">+$260.50</div></div></div>
+    <div class="cards-3" style="grid-template-columns:1fr 1fr; max-width:62%;"><div class="stat-card"><div class="lbl">Trades Closed</div><div class="val">5</div></div><div class="stat-card"><div class="lbl">Win Rate</div><div class="val">80%</div></div></div>
+    <div class="caption">See exactly what your strategy booked — <b>realized profit</b>, per portfolio</div>
+  </div>
+  <div class="scene" data-scene="8">
+    <div class="top-row"><div class="brand"><div class="brand-logo">D</div><div class="brand-name" style="font-size:17px;">Dutton<span class="blue">Capital</span></div></div><div style="text-align:right;"><div class="ny-clock"><div class="t" id="clock-time">03:58 PM</div><div class="d">Fri, Jul 03 · New York (ET)</div><div class="s">🟢 Market Open</div></div><button class="logout-btn">🚪 Secure Logout</button></div></div>
+    <div class="hook-center"><div class="brand-name" style="font-size:24px;">Dutton<span class="blue">Capital</span></div><div style="font-size:14px;color:#94A3B8;">Track. Analyze. Trade with discipline.</div><div style="font-size:13px;color:#64748B;">duttontech.com</div></div>
+    <div class="caption">Live NY market clock, secure by design — <b>request access to start</b></div>
+  </div>
+</div>
+<script>
+const scenes = document.querySelectorAll('.scene');
+const progress = document.getElementById('progress');
+scenes.forEach(() => { const s = document.createElement('span'); progress.appendChild(s); });
+const dots = progress.querySelectorAll('span');
+const durations = [5000, 8000, 9000, 9000, 11000, 9000, 8000, 9000, 7000];
+let idx = 0;
+function typeText(el, text, speed, done) { let i = 0; el.textContent = ''; const timer = setInterval(() => { el.textContent = text.slice(0, ++i); if (i >= text.length) { clearInterval(timer); if (done) done(); } }, speed); }
+function runScene(n) {
+  scenes.forEach(s => s.classList.remove('active'));
+  dots.forEach((d, i) => d.classList.toggle('on', i === n));
+  scenes[n].classList.add('active');
+  if (n === 0) typeText(document.getElementById('url-text'), 'duttontech.com', 120);
+  if (n === 1) typeText(document.getElementById('login-user'), 'BethD-Demo', 120, () => setTimeout(() => typeText(document.getElementById('login-pass'), '\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022', 90), 400));
+  if (n === 4) { const tbody = document.getElementById('buy-tbody'); setTimeout(() => { const tr = document.createElement('tr'); tr.className = 'row-new'; tr.innerHTML = '<td>2026-07-03</td><td>MSFT</td><td class="num">2.00</td><td class="num">$390.00</td><td>Purchase</td>'; tbody.appendChild(tr); const total = document.getElementById('buy-total'); total.textContent = '$2,376.27'; total.style.color = '#10B981'; }, 2800); }
+  if (n === 6) { setTimeout(() => { const t = document.getElementById('tech-target'); t.textContent = '20'; t.style.color = '#4285F4'; const sp = document.getElementById('sp1'); sp.textContent = '$464.40'; sp.classList.add('bump'); }, 3000); }
+  if (n === 8) { const times = ['03:58 PM','03:59 PM','04:00 PM']; let ti = 0; const ct = document.getElementById('clock-time'); const tick = setInterval(() => { ti++; if (ti < times.length) { ct.textContent = times[ti]; if (times[ti] === '04:00 PM') { const s = ct.parentElement.querySelector('.s'); s.textContent = '\ud83d\udd34 Market Closed'; s.style.color = '#EF4444'; } } else clearInterval(tick); }, 2000); }
+  setTimeout(() => { idx = (n + 1) % scenes.length; runScene(idx); }, durations[n]);
+}
+runScene(0);
+</script>
+</body>
+</html>
