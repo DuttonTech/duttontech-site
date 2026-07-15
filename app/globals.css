@@ -176,3 +176,83 @@ footer{border-top:1px solid var(--border);padding:56px 0 40px;margin-top:36px}
   .hdr-cta .btn.hide-sm{display:none}
   .brand-lockup{flex-direction:column;align-items:center;gap:14px}
 }
+
+/* ============ Block 2: mobile menu ============ */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:40px;padding:0 11px;border:1px solid var(--border-hi);border-radius:9px;background:rgba(148,163,184,.06);cursor:pointer;transition:border-color .2s}
+.hamburger:hover{border-color:var(--blue)}
+.hamburger span{display:block;height:2px;width:100%;background:var(--muted-2);border-radius:2px;transition:transform .25s var(--ease),opacity .2s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-panel{position:absolute;top:100%;left:0;right:0;display:flex;flex-direction:column;gap:6px;padding:16px 22px 22px;background:rgba(6,10,23,.97);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--border);border-bottom:1px solid var(--border);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .25s}
+.mobile-panel.open{opacity:1;visibility:visible;transform:none}
+.mobile-panel a.mlink{padding:13px 4px;font-size:16px;font-weight:600;color:var(--muted-2);border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-panel a.mlink:hover{color:#fff}
+.mobile-panel .btn{width:100%;text-align:center;margin-top:8px;padding:12px}
+
+/* ============ Block 2: subpage prose (About / Terms / Privacy) ============ */
+.prose p{color:var(--muted-2);font-size:16px;line-height:1.75;margin-top:18px}
+.prose p:first-child{margin-top:20px}
+.prose strong{color:#fff;font-weight:800}
+.prose section{margin-top:26px}
+.doc-h{font-size:20px;font-weight:800;color:var(--blue-lt);letter-spacing:-.3px;margin-bottom:6px}
+.doc-updated{color:var(--muted);font-style:italic;font-size:14px;margin-top:8px}
+.doc-foot{font-style:italic;color:var(--muted);font-size:14px;margin-top:28px}
+
+/* ============ Block 2: FAQ ============ */
+.faq-head{text-align:center;max-width:760px;margin:0 auto 40px}
+.faq-head h1{font-size:clamp(30px,3.4vw,44px);font-weight:800;letter-spacing:-1px;color:#fff}
+.faq-head p{color:var(--muted-2);font-size:16px;margin-top:16px;line-height:1.6}
+.faq-list{max-width:860px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:border-color .25s}
+.faq-item[open]{border-color:var(--border-hi)}
+.faq-item summary{list-style:none;cursor:pointer;padding:18px 22px;font-size:16.5px;font-weight:700;color:var(--silver);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .2s}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";color:var(--blue);font-size:24px;font-weight:300;line-height:1;flex:none}
+.faq-item[open] summary::after{content:"\2212"}
+.faq-item summary:hover{color:#fff}
+.faq-item .faq-a{padding:0 22px 20px;color:var(--muted);font-size:14.5px;line-height:1.65}
+
+/* ============ Block 2: Pricing ============ */
+.price-head{text-align:center;max-width:720px;margin:0 auto 40px}
+.price-head h1{font-size:clamp(30px,3.4vw,44px);font-weight:800;letter-spacing:-1px;color:#fff}
+.price-head p{color:var(--muted-2);font-size:16px;margin-top:14px}
+.price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:860px;margin:0 auto}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:34px 28px;text-align:center;transition:transform .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.price-card:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:0 24px 50px -20px rgba(0,0,0,.7),0 0 34px -12px rgba(66,133,244,.3)}
+.price-card h3{font-size:22px;font-weight:800;color:#fff;margin-bottom:14px}
+.price-card .price{font-size:40px;font-weight:900;color:var(--blue-lt);letter-spacing:-1px;margin-bottom:20px}
+.price-card .price .per{font-size:18px;color:var(--muted);font-weight:700}
+.price-card .pt{color:var(--silver);font-size:15px;margin-top:8px}
+.price-card .pt-note{color:var(--muted);font-size:14px;margin-top:18px}
+.pay-box{max-width:860px;margin:26px auto 0;background:linear-gradient(180deg,rgba(66,133,244,.08),rgba(66,133,244,.02));border:1px solid rgba(66,133,244,.25);border-radius:16px;padding:28px 30px}
+.pay-box h3{font-size:20px;font-weight:800;color:var(--blue-lt);margin-bottom:16px}
+.pay-box ol{margin:0;padding-left:20px;counter-reset:step}
+.pay-box li{color:var(--muted-2);font-size:15px;line-height:1.6;margin-bottom:12px;padding-left:6px}
+.pay-box li strong{color:#fff}
+
+/* ============ Block 2: Demo ============ */
+.demo-subtitle{color:var(--blue-lt);font-weight:800;font-size:19px;margin-top:6px}
+.demo-preview{max-width:860px;margin:30px auto 0}
+.demo-cap{display:flex;align-items:center;justify-content:center;gap:9px;color:var(--muted);font-size:14px;font-weight:600;margin-bottom:16px}
+.demo-frame{max-width:560px;margin:0 auto}
+.demo-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:860px;margin:44px auto 0}
+.demo-hi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px}
+.demo-hi .ic{width:42px;height:42px;border-radius:11px;background:rgba(66,133,244,.12);border:1px solid rgba(66,133,244,.25);display:grid;place-items:center;font-size:19px;margin-bottom:14px}
+.demo-hi h3{font-size:16.5px;font-weight:800;color:var(--blue-lt);margin-bottom:7px}
+.demo-hi p{color:var(--muted);font-size:14px;line-height:1.55}
+.demo-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:44px auto 0}
+
+@media(max-width:960px){
+  header nav.mainnav{display:none}
+  .hdr-cta{display:none}
+  .hamburger{display:flex}
+  .price-grid{max-width:520px}
+  .demo-highlights{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .price-grid{grid-template-columns:1fr}
+  .sub-card{padding:30px 22px}
+  .demo-cta-row{flex-direction:column}
+  .demo-cta-row .btn{width:100%;text-align:center}
+}

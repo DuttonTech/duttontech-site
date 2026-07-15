@@ -3,18 +3,30 @@ import { useEffect, useState } from "react";
 import { TechMark } from "./Logo";
 import { APP_URL } from "../lib/content";
 
+const NAV = [
+  { href: "#features", label: "Platform" },
+  { href: "#privacy", label: "Privacy" },
+  { href: "#capabilities", label: "Capabilities" },
+  { href: "#steps", label: "Get started" },
+];
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const close = () => setOpen(false);
+
   return (
     <header className={scrolled ? "scrolled" : ""}>
       <div className="hdr-inner">
-        <a href="#top" className="brand hdr">
+        <a href="#top" className="brand hdr" onClick={close}>
           <span className="mark">
             <TechMark gid="tech-hdr" />
           </span>
@@ -25,20 +37,49 @@ export default function Header() {
             <span className="tagline">&quot;Your future is bright&quot;</span>
           </span>
         </a>
+
         <nav className="mainnav">
-          <a href="#features">Platform</a>
-          <a href="#privacy">Privacy</a>
-          <a href="#capabilities">Capabilities</a>
-          <a href="#steps">Get started</a>
+          {NAV.map((l) => (
+            <a key={l.href} href={l.href}>
+              {l.label}
+            </a>
+          ))}
         </nav>
+
         <div className="hdr-cta">
-          <a className="btn btn-ghost hide-sm" href={APP_URL}>
+          <a className="btn btn-ghost" href={APP_URL}>
             Log In
           </a>
           <a className="btn btn-solid" href="#">
             Access Request
           </a>
         </div>
+
+        <button
+          type="button"
+          className={open ? "hamburger open" : "hamburger"}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      <div className={open ? "mobile-panel open" : "mobile-panel"}>
+        {NAV.map((l) => (
+          <a key={l.href} className="mlink" href={l.href} onClick={close}>
+            {l.label}
+          </a>
+        ))}
+        <a className="btn btn-ghost" href={APP_URL} onClick={close}>
+          Log In
+        </a>
+        <a className="btn btn-solid" href="#" onClick={close}>
+          Access Request
+        </a>
       </div>
     </header>
   );

@@ -1,9 +1,20 @@
 import SubPage from "../../components/SubPage";
+import { aboutParas } from "../../lib/content";
+
 export default function Page() {
   return (
-    <SubPage
-      title="About Us"
-      lead="Dutton Tech LLC is a financial data infrastructure company focused on building secure, high-performance portfolio analytics tools for modern investors."
-    />
+    <SubPage>
+      <div className="sub-card">
+        <h1>About DuttonTech</h1>
+        <div className="prose">
+          {aboutParas.map((p, i) => (
+            <p key={i}>
+              {p.lead ? <strong>{p.lead}</strong> : null}
+              {p.body}
+            </p>
+          ))}
+        </div>
+      </div>
+    </SubPage>
   );
 }
