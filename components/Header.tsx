@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { TechMark } from "./Logo";
-import { APP_URL } from "../lib/content";
+import { APP_URL, REQUEST_URL } from "../lib/content";
 
 const NAV = [
   { href: "#features", label: "Platform" },
@@ -65,7 +65,7 @@ export default function Header() {
           <a className="btn btn-ghost" href={APP_URL}>
             Log In
           </a>
-          <a className="btn btn-solid" href="#">
+          <a className="btn btn-solid" href={REQUEST_URL}>
             Access Request
           </a>
         </div>
@@ -92,7 +92,7 @@ export default function Header() {
         <a className="btn btn-ghost" href={APP_URL} onClick={() => setOpen(false)}>
           Log In
         </a>
-        <a className="btn btn-solid" href="#" onClick={() => setOpen(false)}>
+        <a className="btn btn-solid" href={REQUEST_URL} onClick={() => setOpen(false)}>
           Access Request
         </a>
       </div>

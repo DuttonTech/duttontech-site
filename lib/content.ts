@@ -52,6 +52,7 @@ export const holdings: Holding[] = [
 ];
 
 export const APP_URL = "https://app.duttontech.com";
+export const REQUEST_URL = "https://app.duttontech.com/?request=1";
 export const EMAIL = "DuttonTechLLC@gmail.com";
 
 /* ---------- Subpage content (Block 2) ---------- */

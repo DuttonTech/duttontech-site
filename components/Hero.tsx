@@ -1,7 +1,7 @@
 import Reveal from "./Reveal";
 import LivingDashboard from "./LivingDashboard";
 import { TechMark } from "./Logo";
-import { APP_URL } from "../lib/content";
+import { APP_URL, REQUEST_URL } from "../lib/content";
 
 export default function Hero() {
   return (
@@ -37,7 +37,7 @@ export default function Hero() {
             ever connecting a bank or brokerage.
           </p>
           <div className="hero-cta">
-            <a className="btn btn-solid btn-lg" href="#">
+            <a className="btn btn-solid btn-lg" href={REQUEST_URL}>
               Request Access
             </a>
             <a className="btn btn-ghost btn-lg" href={APP_URL}>
