@@ -21,12 +21,27 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const close = () => setOpen(false);
+  // smooth-scroll only for in-page anchors (default page scroll is instant)
+  const goAnchor = (e: React.MouseEvent, href: string) => {
+    setOpen(false);
+    if (!href.startsWith("#")) return;
+    const id = href.slice(1);
+    if (id === "top") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <header className={scrolled ? "scrolled" : ""}>
       <div className="hdr-inner">
-        <a href="#top" className="brand hdr" onClick={close}>
+        <a href="#top" className="brand hdr" onClick={(e) => goAnchor(e, "#top")}>
           <span className="mark">
             <TechMark gid="tech-hdr" />
           </span>
@@ -40,7 +55,7 @@ export default function Header() {
 
         <nav className="mainnav">
           {NAV.map((l) => (
-            <a key={l.href} href={l.href}>
+            <a key={l.href} href={l.href} onClick={(e) => goAnchor(e, l.href)}>
               {l.label}
             </a>
           ))}
@@ -70,14 +85,14 @@ export default function Header() {
 
       <div className={open ? "mobile-panel open" : "mobile-panel"}>
         {NAV.map((l) => (
-          <a key={l.href} className="mlink" href={l.href} onClick={close}>
+          <a key={l.href} className="mlink" href={l.href} onClick={(e) => goAnchor(e, l.href)}>
             {l.label}
           </a>
         ))}
-        <a className="btn btn-ghost" href={APP_URL} onClick={close}>
+        <a className="btn btn-ghost" href={APP_URL} onClick={() => setOpen(false)}>
           Log In
         </a>
-        <a className="btn btn-solid" href="#" onClick={close}>
+        <a className="btn btn-solid" href="#" onClick={() => setOpen(false)}>
           Access Request
         </a>
       </div>
