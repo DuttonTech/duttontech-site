@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { Item, Step } from "../lib/content";
 import Reveal from "./Reveal";
+import { MarketsMark } from "./Logo";
 
 export function SectionHead({
   eyebrow,
@@ -74,7 +75,15 @@ export function Steps({ items }: { items: Step[] }) {
 export function Spotlight({ title, desc }: { title: string; desc: string }) {
   return (
     <Reveal className="spotlight">
-      <h2 className="spot-title">{title}</h2>
+      <div className="spot-lockup">
+        <span className="spot-logo">
+          <MarketsMark />
+        </span>
+        <span className="spot-txt">
+          <h2 className="spot-title">{title}</h2>
+          <div className="spot-tagline">&quot;Every position, clearly tracked.&quot;</div>
+        </span>
+      </div>
       <div className="spot-divider" />
       <p className="spot-desc">{desc}</p>
     </Reveal>

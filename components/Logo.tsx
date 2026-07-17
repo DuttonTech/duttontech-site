@@ -19,6 +19,31 @@ export function TechMark({ gid = "ti" }: { gid?: string }) {
   );
 }
 
+export function MarketsMark({ gid = "jade" }: { gid?: string }) {
+  return (
+    <svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id={gid} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#ECFDF5" />
+          <stop offset="35%" stopColor="#D1FAE5" />
+          <stop offset="70%" stopColor="#A7F3D0" />
+          <stop offset="100%" stopColor="#6EE7B7" />
+        </linearGradient>
+      </defs>
+      <rect x="3" y="3" width="102" height="102" rx="24" fill="rgba(30,41,59,0.55)" stroke="#34D399" strokeWidth="4.5" />
+      <path d="M 22 22 L 56 22 C 80 22 86 42 86 54 C 86 66 80 86 56 86 L 22 86 Z" fill="none" stroke={`url(#${gid})`} strokeWidth="8" />
+      <g stroke="#10B981" strokeWidth="1.1" strokeLinecap="round">
+        <line x1="36" y1="52" x2="36" y2="75" />
+        <line x1="48" y1="44" x2="48" y2="71" />
+        <line x1="60" y1="37" x2="60" y2="65" />
+      </g>
+      <rect x="33" y="58" width="6" height="13" rx="0.8" fill="#34D399" />
+      <rect x="45" y="50" width="6" height="17" rx="0.8" fill="#34D399" />
+      <rect x="57" y="43" width="6" height="18" rx="0.8" fill="#34D399" />
+    </svg>
+  );
+}
+
 export function WorksMark() {
   return (
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

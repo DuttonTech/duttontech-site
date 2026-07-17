@@ -59,7 +59,7 @@ export default function Footer() {
         </Reveal>
 
         <p className="legal">
-          DuttonTech and DuttonCapital Asset Mgmt provide software tools for portfolio tracking, analytics,
+          DuttonTech and DuttonMarkets Portfolio Tracker provide software tools for portfolio tracking, analytics,
           visualization, simulation and reporting. DuttonTech does not provide financial, investment, tax,
           legal, brokerage, custody or payment services. The platform does not execute trades, hold assets,
           connect to bank or brokerage accounts, or provide personalized investment recommendations. Users are

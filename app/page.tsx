@@ -33,8 +33,8 @@ export default function Home() {
 
       <section className="band wrap" id="product">
         <Spotlight
-          title="DuttonCapital Asset Mgmt"
-          desc="DuttonCapital Asset Mgmt is our flagship portfolio platform — a secure, private workspace for tracking your stocks and crypto with real precision. Organize holdings into active-trading and long-term buckets, record every purchase and sale with accurate lot-based accounting, and see your live market values, targets, and realized performance at a glance. You keep full control of your data; the platform never executes trades or touches your accounts."
+          title="DuttonMarkets Portfolio Tracker"
+          desc="DuttonMarkets Portfolio Tracker is our flagship portfolio platform — a secure, private workspace for tracking your stocks and crypto with real precision. Organize holdings into active-trading and long-term buckets, record every purchase and sale with accurate lot-based accounting, and see your live market values, targets, and realized performance at a glance. You keep full control of your data; the platform never executes trades or touches your accounts."
         />
       </section>
 
@@ -46,7 +46,7 @@ export default function Home() {
 
       <section className="band wrap" id="steps">
         <SectionHead
-          eyebrow="Up and running with DuttonCapital in minutes"
+          eyebrow="Up and running with DuttonMarkets in minutes"
           title="From request to tracking, in four steps"
         />
         <Steps items={steps} />

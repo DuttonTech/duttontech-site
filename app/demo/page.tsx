@@ -12,7 +12,7 @@ export default function Page() {
 
       <p className="demo-cap">▶ A quick auto-playing tour of the platform</p>
       <div className="demo-tour">
-        <iframe src="/demo-tour.html" title="DuttonCapital product tour" loading="lazy" />
+        <iframe src="/demo-tour.html" title="DuttonMarkets product tour" loading="lazy" />
       </div>
 
       <div className="demo-cta">

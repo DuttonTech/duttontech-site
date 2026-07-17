@@ -7,7 +7,7 @@ export default function Page() {
       <div className="faq-head">
         <h1>Frequently Asked Questions</h1>
         <p>
-          Everything you need to know about DuttonTech, DuttonCapital Asset Mgmt, privacy, portfolio
+          Everything you need to know about DuttonTech, DuttonMarkets Portfolio Tracker, privacy, portfolio
           tracking, activation, and support.
         </p>
       </div>

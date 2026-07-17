@@ -51,8 +51,8 @@ export const holdings: Holding[] = [
   { tick: "MSFT", color: "#4285F4", sub: "Microsoft · 22", val: "$9,910", chg: "+0.8%", up: true },
 ];
 
-export const APP_URL = "https://app.duttontech.com";
-export const REQUEST_URL = "https://app.duttontech.com/?request=1";
+export const APP_URL = "https://duttonmarkets.com";
+export const REQUEST_URL = "https://duttonmarkets.com/?request=1";
 export const EMAIL = "DuttonTechLLC@gmail.com";
 
 /* ---------- Subpage content (Block 2) ---------- */
@@ -64,15 +64,15 @@ export const PAY_EMAIL = "DuttonTechLLC@gmail.com";
 export const aboutParas: { lead?: string; body: string }[] = [
   { lead: "DuttonTech LLC", body: " is a financial data infrastructure company focused on building secure, high-performance portfolio analytics tools for modern investors." },
   { body: "Our mission is to simplify how individuals and private clients monitor and understand their assets. Traditional systems are often fragmented, slow, and difficult to manage. We replace that complexity with a streamlined, private, and responsive environment." },
-  { lead: "DuttonCapital Asset Management", body: " is our flagship dashboard for portfolio tracking, market data visualization, and performance analysis. The platform does not execute trades, hold client funds, or provide financial advice." },
+  { lead: "DuttonMarkets Portfolio Tracker", body: " is our flagship dashboard for portfolio tracking, market data visualization, and performance analysis. The platform does not execute trades, hold client funds, or provide financial advice." },
   { lead: "What we are:", body: " portfolio analytics, data visibility, and simulation support." },
   { lead: "What we are not:", body: " a brokerage, a bank, or an investment advisor." },
 ];
 
 export const demoContent = {
-  subtitle: "DuttonCapital Platform Walkthrough",
+  subtitle: "DuttonMarkets Platform Walkthrough",
   description:
-    "Experience the power and clarity of the DuttonCapital Asset Management dashboard. Designed for modern investors, our platform provides a secure, private environment to track live market performance, visualize portfolio distribution, and simulate strategic trades without ever linking external bank or brokerage accounts. Built for institutional-grade precision, it empowers you with total, uncompromised control over your financial data.",
+    "Experience the power and clarity of the DuttonMarkets Portfolio Tracker dashboard. Designed for modern investors, our platform provides a secure, private environment to track live market performance, visualize portfolio distribution, and simulate strategic trades without ever linking external bank or brokerage accounts. Built for institutional-grade precision, it empowers you with total, uncompromised control over your financial data.",
 };
 
 export const plans: { name: string; price: string; per?: string; points: string[]; note: string }[] = [
@@ -84,7 +84,7 @@ export const faqs: { q: string; a: string }[] = [
   { q: "Who is DuttonTech built for?", a: "DuttonTech is built for users who want a private, manual-entry portfolio analytics environment for tracking holdings, cash balances, watchlists, simulated orders, and portfolio movement without connecting bank or brokerage accounts." },
   { q: "What sets DuttonTech apart from other portfolio trackers?", a: "DuttonTech focuses on privacy, control, and manual data ownership. It does not require aggregator connections, does not custody assets, does not execute trades, and keeps the workflow centered on user-entered portfolio data." },
   { q: "What does DuttonTech do to protect my privacy?", a: "DuttonTech is designed around controlled access, login protection, manual activation, and portfolio analytics without requiring bank, brokerage, or custody integrations." },
-  { q: "Does DuttonCapital connect to my bank or broker?", a: "No. DuttonCapital Asset Mgmt is a portfolio analytics and visualization platform only. It does not connect to banks, brokerages, custodians, or payment credential systems." },
+  { q: "Does DuttonMarkets connect to my bank or broker?", a: "No. DuttonMarkets Portfolio Tracker is a portfolio analytics and visualization platform only. It does not connect to banks, brokerages, custodians, or payment credential systems." },
   { q: "What kind of assets can I track?", a: "You can track manually entered stock positions, Bitcoin quantity, cash balances, watchlists, and simulated limit-order ideas. Future enhancements may expand supported asset views." },
   { q: "Can I import my financial data?", a: "Yes. The platform supports CSV import workflows for portfolio data, using the required fields shown in the Data Center import section." },
   { q: "Do I have to input every transaction?", a: "No. You can maintain summary holdings by entering ticker, quantity, and purchase price. More detailed transaction-level support may be added later." },
@@ -99,9 +99,9 @@ export const faqs: { q: string; a: string }[] = [
 ];
 
 export const termsIntro =
-  'These Terms of Service ("Terms") govern your use of the DuttonCapital Asset Mgmt platform provided by DuttonTech LLC ("DuttonTech", "we", "us"). By accessing or using the platform, you agree to these Terms.';
+  'These Terms of Service ("Terms") govern your use of the DuttonMarkets Portfolio Tracker platform provided by DuttonTech LLC ("DuttonTech", "we", "us"). By accessing or using the platform, you agree to these Terms.';
 export const termsSections: { h: string; p: string }[] = [
-  { h: "1. Nature of the service", p: "DuttonCapital provides portfolio tracking, analytics, and visualization software. It does not execute trades, hold or custody assets, connect to bank or brokerage accounts, or provide financial, investment, tax, or legal advice. All figures are based on information you enter or import, and you are responsible for their accuracy." },
+  { h: "1. Nature of the service", p: "DuttonMarkets provides portfolio tracking, analytics, and visualization software. It does not execute trades, hold or custody assets, connect to bank or brokerage accounts, or provide financial, investment, tax, or legal advice. All figures are based on information you enter or import, and you are responsible for their accuracy." },
   { h: "2. No financial advice", p: "Nothing on the platform constitutes a recommendation to buy, sell, or hold any security or asset. You are solely responsible for your own investment decisions and outcomes. Consider consulting a licensed professional before making financial decisions." },
   { h: "3. Account responsibility", p: "You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. Notify us promptly of any unauthorized use." },
   { h: "4. Payments and activation", p: "Access may be granted through passes or subscriptions. Payments are handled manually, and access is activated after administrator review. Fees, where applicable, are described at the time of sign-up." },
@@ -114,12 +114,12 @@ export const termsSections: { h: string; p: string }[] = [
 ];
 
 export const privacyIntro =
-  'This Privacy Policy explains how DuttonTech LLC ("DuttonTech", "we", "us") handles information in connection with the DuttonCapital Asset Mgmt platform. By using the platform, you agree to the practices described here.';
+  'This Privacy Policy explains how DuttonTech LLC ("DuttonTech", "we", "us") handles information in connection with the DuttonMarkets Portfolio Tracker platform. By using the platform, you agree to the practices described here.';
 export const privacySections: { h: string; p: string }[] = [
   { h: "1. Information we collect", p: "We collect the account details you provide (such as your username and email), the portfolio information you enter or import (tickers, quantities, prices, dates, cash balances, watchlists, and similar), limited technical and usage information needed to operate and secure the platform, and any messages you send us for support." },
   { h: "2. How we use information", p: "We use your information to operate the platform's portfolio calculations and displays, to authenticate and secure your account, to provide support, and to maintain and improve the reliability of the service. We do not use your portfolio data to provide financial advice." },
   { h: "3. Data sharing", p: "We do not sell your personal information. Limited data may be processed by the cloud, hosting, and infrastructure providers we rely on solely to operate the service, and we may disclose information where required by law. We do not share your portfolio data with advertisers or data brokers." },
-  { h: "4. Financial account access", p: "DuttonCapital does not connect to your bank or brokerage accounts, does not aggregate external financial accounts, and does not store payment card credentials. All portfolio data is entered or imported by you." },
+  { h: "4. Financial account access", p: "DuttonMarkets does not connect to your bank or brokerage accounts, does not aggregate external financial accounts, and does not store payment card credentials. All portfolio data is entered or imported by you." },
   { h: "5. Data security", p: "We use measures such as access controls, login protection, and password hashing to help protect your information. No system can guarantee absolute security, and you are responsible for keeping your login credentials confidential." },
   { h: "6. Data retention", p: "We retain your account and portfolio data for as long as your account is active or as needed to provide the service. You may request deletion as described below." },
   { h: "7. Your rights", p: "You may request access to, correction of, or deletion of your personal data by contacting us at DuttonTechLLC@gmail.com. We will respond to reasonable requests consistent with applicable law." },
